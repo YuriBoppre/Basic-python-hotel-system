@@ -2,6 +2,7 @@ import json
 from math import ceil
 from posixpath import split
 import src.functions as functions
+from src.entities.option import Option
 
 hospedes_json = open('./hospedes.data.json')
 
@@ -52,16 +53,6 @@ def realizar_check_in():
             try: functions.print_dados_hospede(functions.procurar_reserva_pelo_cpf(hospedes_data, cpf))
             except Exception as e:print(e)
         value = int(input('\n 1 - Realizar outra pesquisa\n 0 - Voltar\n>> '))
-        
-        
-class Option:
-    def __init__(self, value: str):
-        start = 1
-        end = 6
-        valid_options = [str(x) for x in range(start, end + 1)]
-        if value not in valid_options:
-            raise ValueError("O valor digitado deve ser uma opção válida")
-        self.value = int(value)
         
 def get_option_from_user():
     try:
