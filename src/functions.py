@@ -39,10 +39,13 @@ def procurar_reserva_pelo_cpf(lista_hospedes, cpf):
 
     for hospede in lista_hospedes:
         if hospede['cpf'] == cpf:
-            if hospede['status'] == "R":
-                reservas_pelo_hospede.append(hospede)
+            reservas_pelo_hospede.append(hospede)
 
     return reservas_pelo_hospede
+
+def listar_reservas_por_status(lista_hospedes, status):
+    reservas = list(filter(lambda x: x['status'] == status, lista_hospedes))
+    return reservas
 
 
 
