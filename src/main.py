@@ -1,4 +1,5 @@
 import json
+from time import sleep
 import functions
 from functools import reduce
 
@@ -21,22 +22,31 @@ def add_novo_hospede():
 
         if name == None or name == "":
             print("Nome é obrigatório")
+            sleep(1)
             continue
 
         cpf = input("Informe o cpf: ")
 
         if cpf == None or cpf == "":
             print("CPF é obrigatório")
+            sleep(1)
+            continue
+
+        if not valida_cpf(cpf):
+            print("CPF inválido")
+            sleep(1)
             continue
 
         qtdePessoas = int(input("Informe quantas pessoas: "))
 
         if qtdePessoas == None:
             print("Quantidade de pessoas é obrigatório")
+            sleep(1)
             continue
 
         if qtdePessoas <= 0:
             print("Quantidade de pessoas deve ser maior que 0")
+            sleep(1)
             continue
 
         tipoQuarto = input(
@@ -45,16 +55,19 @@ def add_novo_hospede():
 
         if tipoQuarto not in ("S", "D", "P"):
             print("Tipo quarto inválido")
+            sleep(1)
             continue
 
         numDias = int(input("Quantos dias de estadia: "))
 
         if numDias == None:
             print("quantidade de dias é obrigatório")
+            sleep(1)
             continue
 
         if numDias <= 0:
             print("Quantidade de dias deve ser maior que 0")
+            sleep(1)
             continue
 
         valor = functions.verificaValorDoQuarto(tipoQuarto, qtdePessoas, numDias)

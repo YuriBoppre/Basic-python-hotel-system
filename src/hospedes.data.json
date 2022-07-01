@@ -68,5 +68,15 @@
         "numDias": 5,
         "valor": 1500,
         "status": "R"
+    },
+    {
+        "id": 8,
+        "nome": "joel",
+        "cpf": "07884260956",
+        "qtdePessoas": 10,
+        "tipoQuarto": "P",
+        "numDias": 10,
+        "valor": 30000,
+        "status": "R"
     }
 ]
